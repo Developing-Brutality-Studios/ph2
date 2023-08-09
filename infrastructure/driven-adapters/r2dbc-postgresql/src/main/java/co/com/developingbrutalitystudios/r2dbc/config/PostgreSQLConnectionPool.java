@@ -24,7 +24,7 @@ public class PostgreSQLConnectionPool {
 		pgProperties.setHost("localhost");
 		pgProperties.setPort(5432);
 		pgProperties.setUsername("postgres");
-		pgProperties.setPassword("secret");
+		pgProperties.setPassword("postgres");
 		pgProperties.setSchema("public");
 
 		return buildConnectionConfiguration(pgProperties);

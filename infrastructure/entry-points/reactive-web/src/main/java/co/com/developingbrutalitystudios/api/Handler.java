@@ -1,5 +1,7 @@
 package co.com.developingbrutalitystudios.api;
 
+import co.com.developingbrutalitystudios.model.usuario.Usuario;
+import co.com.developingbrutalitystudios.usecase.registeruser.RegisterUserUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
@@ -10,7 +12,7 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class Handler {
 //private  final UseCase useCase;
-//private  final UseCase2 useCase2;
+  private  final RegisterUserUseCase useCase2;
     public Mono<ServerResponse> listenGETUseCase(ServerRequest serverRequest) {
         // usecase.logic();
         return ServerResponse.ok().bodyValue("");
@@ -23,6 +25,6 @@ public class Handler {
 
     public Mono<ServerResponse> listenPOSTUseCase(ServerRequest serverRequest) {
         // usecase.logic();
-        return ServerResponse.ok().bodyValue("");
+        return ServerResponse.ok().body(useCase2.registrarUsuario(serverRequest.bodyToMono(Usuario.class)),Boolean.class);
     }
 }
