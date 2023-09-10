@@ -21,7 +21,8 @@ public class RepositoryAdapter extends ReactiveAdapterOperations<Usuario/* chang
 
     @Override
     public Mono<Boolean> crearUsuario(Usuario usuario) {
-        co.com.developingbrutalitystudios.r2dbc.data.Usuario user = mapper.map(usuario, co.com.developingbrutalitystudios.r2dbc.data.Usuario.class);
+        co.com.developingbrutalitystudios.r2dbc.data.Usuario user = new co.com.developingbrutalitystudios.r2dbc.data.Usuario(null, usuario.getName(), usuario.getContrasena(), usuario.getUserName(), usuario.getUserImage());
+        // co.com.developingbrutalitystudios.r2dbc.data.Usuario user = mapper.map(usuario, co.com.developingbrutalitystudios.r2dbc.data.Usuario.class);
         return repository.save(user).map(usuario1 -> usuario1 != null);
     }
 }

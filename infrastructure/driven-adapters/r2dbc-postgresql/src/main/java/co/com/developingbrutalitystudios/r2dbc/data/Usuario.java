@@ -1,5 +1,6 @@
 package co.com.developingbrutalitystudios.r2dbc.data;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
@@ -8,6 +9,7 @@ import org.springframework.data.relational.core.mapping.Table;
 
 @Data
 @Builder
+@AllArgsConstructor
 @Table("usuarios")
 public class Usuario {
     @Id

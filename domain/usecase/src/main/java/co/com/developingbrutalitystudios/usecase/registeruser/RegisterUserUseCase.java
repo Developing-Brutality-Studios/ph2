@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class RegisterUserUseCase {
 
-    private UsuarioRepository repository;
+    private final UsuarioRepository repository;
     public Mono<Boolean> registrarUsuario(Mono<Usuario> usuario){
         usuario.map(RegisterUserUseCase::printuser);
         return usuario.flatMap(usuario1 -> repository.crearUsuario(usuario1));
