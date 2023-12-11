@@ -10,8 +10,12 @@ jobs:
 
   build:
     runs-on: self-hosted
-
+    
     steps:
     - uses: actions/checkout@v3
+    - name: Build with Gradle
+      run: gradle assemble
+    - name: Move JAR to specified folder
+      run: mv ./build/libs/ph2.jar ./deployment/
     - name: Build the Docker image
       run: docker build ./deployment --file ./deployment/Dockerfile --tag ph2:$(date +%s)
