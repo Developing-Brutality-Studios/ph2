@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build ./deployment --file Dockerfile --tag ph2:$(date +%s)
+      run: docker build ./deployment --file ./deployment/Dockerfile --tag ph2:$(date +%s)
