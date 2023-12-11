@@ -20,7 +20,7 @@ jobs:
     - name: Move JAR to specified folder
       run: mv ./build/libs/ph2.jar ./deployment/
     - name: Build the Docker image
-      run: docker build ./deployment --file ./deployment/Dockerfile --tag pelanguero/ph2:$(date +%s)
+      run: docker build ./deployment --file ./deployment/Dockerfile --tag ${{ secrets.DOCKER_USERNAME }}/ph2:$(date +%s)
     - name: Push to Docker Hub
       run: |
         echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
